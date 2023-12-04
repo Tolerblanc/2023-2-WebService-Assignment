@@ -12,6 +12,5 @@ export class User {
     userId: string;
 
     @Column()
-    @Length(4, 20)
     password: string;
 }

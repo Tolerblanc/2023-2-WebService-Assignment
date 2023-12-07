@@ -18,9 +18,9 @@ export class AuthController {
         try {
             const newJwt: string = await this.authService.login(loginDto);
             if (loginDto.isSession === true) {
-                res.cookie('access_token', newJwt);
-            } else {
                 res.cookie('access_token', newJwt, { maxAge: 60 * 60 * 24 * 1000 });
+            } else {
+                res.cookie('access_token', newJwt);
             }
             res.redirect('/');
         } catch (e) {
